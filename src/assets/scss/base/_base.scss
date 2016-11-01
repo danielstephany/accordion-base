@@ -1,0 +1,52 @@
+body {
+  padding-top: 100px;
+}
+
+.main-accordion {
+  display: block;
+  list-style: none;
+  margin: 0 0 16px;
+  color: grey;
+  padding: 0;
+  width: 100%;
+  @media (max-width: $screen-md) {
+    padding: 0;
+  }
+  .main-accordion-section {
+    border-bottom: 1px solid #333;
+    color: inherit;
+
+  }
+  .main-accordion-section-title {
+    display: block;
+    line-height: 44px;
+    color: inherit;
+    padding: 0 48px 0 0;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    &:after {
+      display: inline-block;
+      content: '\f107';
+      font-family: Fontawesome;
+      font-size: 28px;
+      height: 44px;
+      color: inherit;
+      position: absolute;
+      top: 0;
+      right: 8px;
+      transition: 0.4s linear;
+    }
+  }
+  .main-accordion-content {
+    display: none;
+    padding: 12px 0;
+  }
+  .main-accordion-section.section-open {
+    .main-accordion-section-title {
+      &:after {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
