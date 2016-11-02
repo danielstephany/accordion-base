@@ -16,6 +16,11 @@ body {
     border-bottom: 1px solid #333;
     color: inherit;
 
+    //uncomment section below and add the class section-open to the first main-accordion-section to have the section open
+    //also set function params to mainAccordion(true, false);
+    //&:first-of-type .main-accordion-content {
+    //   display: block;
+    // }
   }
   .main-accordion-section-title {
     display: block;

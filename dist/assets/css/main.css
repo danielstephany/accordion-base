@@ -8044,7 +8044,7 @@ body {
 .main-accordion {
   display: block;
   list-style: none;
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   color: grey;
   padding: 0;
   width: 100%; }
@@ -8074,7 +8074,8 @@ body {
       right: 8px;
       transition: 0.4s linear; }
   .main-accordion .main-accordion-content {
-    display: none; }
+    display: none;
+    padding: 12px 0; }
   .main-accordion .main-accordion-section.section-open .main-accordion-section-title:after {
     transform: rotate(-180deg); }
 
