@@ -8,6 +8,8 @@ sections are closed pass in true. If the accordion loads with a section open pas
 
 
 mainAccordion(false, true);
+var $page = $("body");
+var $scrollTo;
 
 function mainAccordion(fade, closed) {
     var fadetime = 400;
@@ -50,6 +52,13 @@ function mainAccordion(fade, closed) {
                     }, fadetime);
                 }
                 $this.parent().addClass('section-open');
+                 // checks if the top of the open section is out of the viewport. if out of view the section gets scrolled back into view.
+                setTimeout(function(){
+                    if(($(window).scrollTop()) > $this.offset().top){
+                        $scrollTo = $this.offset().top - 100;
+                        $page.animate({ scrollTop : $scrollTo }, (slidetime*2));
+                    }
+                },(slidetime + fadetime));
             // code used for slide without the fade animation
             } else {
                 $this.parent().parent('[data-accordion="container"]').children('.section-open').children('[data-accordion="target"]').stop().slideUp(slidetime);
