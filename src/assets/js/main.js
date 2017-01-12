@@ -8,13 +8,14 @@ sections are closed pass in true. If the accordion loads with a section open pas
 
 
 mainAccordion(false, true);
-var $page = $("body");
-var $scrollTo;
+
 
 function mainAccordion(fade, closed) {
     var fadetime = 400;
     var slidetime = 400;
     var $accordion = $('[data-accordion="toggle"]');
+    var $page = $("body");
+    var $scrollTo;
     //sets sections opacity for the slide fade toggle
     if (fade){
         $accordion.parent().children('[data-accordion="target"]').css({"opacity": "0"});
@@ -65,6 +66,12 @@ function mainAccordion(fade, closed) {
                 $this.parent().parent('[data-accordion="container"]').children('.section-open').removeClass('section-open');
                 $this.siblings('[data-accordion="target"]').stop().slideToggle(slidetime);
                 $this.parent().addClass('section-open');
+                setTimeout(function(){
+                    if(($(window).scrollTop()) > $this.offset().top){
+                        $scrollTo = $this.offset().top - 100;
+                        $page.animate({ scrollTop : $scrollTo }, (slidetime*2));
+                    }
+                },(slidetime));
             }
         //code that runs if the section clicked on is currently open
         } else {
